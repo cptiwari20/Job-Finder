@@ -8,9 +8,12 @@ const SlidesData = [
   { text: 'Find awesome job near you.', color: '#910b2d'}
 ]
  class WelcomeScreen extends Component {
+   onClickLogin = () => {
+     return this.props.navigation.navigate('Auth')
+   }
   render() {
     return (
-      <Slides slideData={SlidesData} />
+      <Slides onClickLogin={this.onClickLogin} slideData={SlidesData} />
     )
   }
 }
