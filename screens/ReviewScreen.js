@@ -9,7 +9,7 @@ import { Button } from 'react-native-elements';
           <Button 
             title='Settings'
             onPress={() => {navigation.navigate('Settings')}}
-            type="outline"
+            type="clear"
           />
         ),
     headerStyle: { marginTop: Platform.OS === 'android' ? 24 : 0}
