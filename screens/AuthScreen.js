@@ -6,6 +6,14 @@ import {Text, View} from 'react-native'
     return (
       <View>
         <Text>Auth Screen</Text>
+        <Text>Auth Screen</Text>
+        <Text>Auth Screen</Text>
+        <Text>Auth Screen</Text>
+        <Text>Auth Screen</Text>
+        <Text>Auth Screen</Text>
+        <Text>Auth Screen</Text>
+        <Text>Auth Screen</Text>
+
       </View>
     )
   }
