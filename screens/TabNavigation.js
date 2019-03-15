@@ -21,7 +21,7 @@ const TabNavigation = createBottomTabNavigator({
       Deck: { screen: DeckScreen},
       Review: { screen: createStackNavigator({
         screen: ReviewScreen,
-        settings: { screen: SettingsScreen}
+        Settings: { screen: SettingsScreen}
       })}
     })
   }
