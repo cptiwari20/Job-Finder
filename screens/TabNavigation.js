@@ -5,6 +5,12 @@ import AuthScreen from './AuthScreen';
 
 const TabNavigation = createBottomTabNavigator({
   Welcome: {screen: WelcomeScreen},
-  Auth: { screen: AuthScreen}
+  Auth: { screen: AuthScreen},
+  main: {
+    screen: createBottomTabNavigator({
+      Welcome: {screen: WelcomeScreen},
+      Auth: { screen: AuthScreen}
+    })
+  }
 })
 export default createAppContainer(TabNavigation)
