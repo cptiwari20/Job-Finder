@@ -1,15 +1,28 @@
-import { createBottomTabNavigator, createAppContainer } from 'react-navigation';
+import { 
+  createBottomTabNavigator, 
+  createAppContainer, 
+  createStackNavigator } from 'react-navigation';
 
 import WelcomeScreen from './WelcomeScreen';
 import AuthScreen from './AuthScreen';
+import ReviewScreen from './ReviewScreen';
+import SettingsScreen from './SettingsScreen';
+import MapScreen from './MapScreen';
+import DeckScreen from './DeckScreen';
+
+
 
 const TabNavigation = createBottomTabNavigator({
   Welcome: {screen: WelcomeScreen},
   Auth: { screen: AuthScreen},
-  main: {
+  Main: {
     screen: createBottomTabNavigator({
-      Welcome: {screen: WelcomeScreen},
-      Auth: { screen: AuthScreen}
+      Map: {screen: MapScreen},
+      Deck: { screen: DeckScreen},
+      Review: { screen: createStackNavigator({
+        screen: ReviewScreen,
+        settings: { screen: SettingsScreen}
+      })}
     })
   }
 })
