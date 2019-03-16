@@ -33,7 +33,9 @@ const TabNavigation = createBottomTabNavigator ({
         screen: ReviewScreen,
         Settings: { screen: SettingsScreen}
       })}
-    })
+    }),
+    navigationOptions: {
+      tabBarVisible: false }
   }
 },{
   navigationOptions: {
