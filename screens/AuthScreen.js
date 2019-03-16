@@ -5,7 +5,7 @@ import * as actions from '../actions';
 
  class AuthScreen extends Component {
    componentDidMount(){
-     return this.props.actions.loginToFacebook()
+     this.props.loginToFacebook()
    }
   render() {
     return (
