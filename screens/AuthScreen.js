@@ -6,7 +6,6 @@ import * as actions from '../actions';
  class AuthScreen extends Component {
    componentDidMount(){
       this.props.loginToFacebook();
-      //  AsyncStorage.removeItem('fb_token');
       this.onAuthComplete(this.props);
    }
 
