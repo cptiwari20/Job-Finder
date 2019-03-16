@@ -1,7 +1,7 @@
 import { 
   createBottomTabNavigator, 
   createAppContainer, 
-  createStackNavigator } from 'react-navigation';
+  createStackNavigator  } from 'react-navigation';
 
 import WelcomeScreen from './WelcomeScreen';
 import AuthScreen from './AuthScreen';
@@ -12,9 +12,19 @@ import DeckScreen from './DeckScreen';
 
 
 
-const TabNavigation = createBottomTabNavigator({
-  Welcome: {screen: WelcomeScreen},
-  Auth: { screen: AuthScreen},
+const TabNavigation = createBottomTabNavigator ({
+  Welcome: {
+    screen: WelcomeScreen,
+    navigationOptions: {
+      tabBarVisible: false,
+    }
+  },
+  Auth: { 
+    screen: AuthScreen,  
+    navigationOptions: {
+    tabBarVisible: false,
+  }
+},
   Main: {
     screen: createBottomTabNavigator({
       Map: {screen: MapScreen},
@@ -25,5 +35,11 @@ const TabNavigation = createBottomTabNavigator({
       })}
     })
   }
+},{
+  navigationOptions: {
+    tabBarVisible: false,
+  },
+  lazy: true
 })
+
 export default createAppContainer(TabNavigation)
