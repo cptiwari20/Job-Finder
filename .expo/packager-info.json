@@ -1,10 +1,10 @@
 {
   "devToolsPort": 19002,
-  "expoServerPort": 19000,
-  "packagerPort": 19001,
-  "packagerPid": 13908,
+  "expoServerPort": null,
+  "packagerPort": null,
+  "packagerPid": null,
   "expoServerNgrokUrl": "https://5v-pq2.cptiwari20.job-finder.exp.direct",
   "packagerNgrokUrl": "https://packager.5v-pq2.cptiwari20.job-finder.exp.direct",
-  "ngrokPid": 11504,
+  "ngrokPid": 4216,
   "webpackServerPort": null
 }
