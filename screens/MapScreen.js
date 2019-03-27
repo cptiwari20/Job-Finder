@@ -1,38 +1,40 @@
 import React, { Component } from 'react'
-import {Text, View} from 'react-native';
 import { MapView, AppLoading} from 'expo';
+import { connect } from 'react-redux';
+import { fetchData } from '../actions'; 
 
- class MapScreen extends Component {
+class MapScreen extends Component {
   state = {
     region: {
       latitude: 40.76727216,
       longitude: -73.99392888,
-      latitudeDelta: 0.0922,
-      longitudeDelta: 0.0421,
+      latitudeDelta: 0.0022,
+      longitudeDelta: 0.00421,
     },
     showMap: false,
     markers: []
   }
   
-  componentDidMount(){
-    this.fetchData()
-    this.setState({ showMap: true})
+  async componentDidMount(){
+    this.setState({showMap: true})
+    await this.props.fetchData();
+    if(this.state.markers.length === 0){
+      this.setState({ markers: this.props.markers })
+    }
   }
 
   onRegionChangeComplete = (region) => {
     this.setState({ region })
   }
 
-  async fetchData(){
-    const res = await fetch('https://feeds.citibikenyc.com/stations/stations.json');
-    const data = await res.json();
-    this.setState({ markers: data.stationBeanList });
-  }
-
   render() {
     if(!this.state.showMap){
       return <AppLoading />
     }
+
+    console.log('state', this.state.markers.length)
+    console.log('props', this.props.markers.length)
+
     return (
       <MapView 
         showsUserLocation 
@@ -55,4 +57,10 @@ import { MapView, AppLoading} from 'expo';
     )
   }
 }
-export default MapScreen;
+
+function mapStateToProps(state){  
+  return { markers: state.markers}
+}
+
+
+export default connect(mapStateToProps, { fetchData })(MapScreen);
